@@ -1,5 +1,4 @@
 ﻿@model RecyclU.Models.Usuario
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -10,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" id="signupForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
@@ -38,6 +37,13 @@
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label for="Discriminator">Escoge el tipo de organinzación</label>
+                <select class="form-control" id="Discriminator" name="Discriminator">
+                    <option value="Empresa">Empresa</option>
+                    <option value="Universidad">Universidad</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -49,5 +55,29 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Para ejecutar el create dependiendo del rol
+
+        $(document).ready(function () {
+            // Get the form element by id
+            var signupForm = $("#signupForm");
+
+            // Attach an event listener for form submission
+            signupForm.on("submit", function (event) {
+                // Get the selected role from the dropdown
+                var selectedRole = $("#Discriminator").val();
+
+                // Update the form's action based on the selected role
+                if (selectedRole === "Empresa") {
+                    signupForm.attr("action", "/Empresas/Create");
+                } else if (selectedRole === "Universidad") {
+                    signupForm.attr("action", "/Universidades/Create");
+                }
+            });
+        });
+    </script>
 }
