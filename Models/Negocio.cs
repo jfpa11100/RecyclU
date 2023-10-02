@@ -6,9 +6,9 @@ namespace RecyclU.Models
     {
         public required int Id { get; set; }
         public required string UniversidadEmail { get; set; }
-        public required Universidad Universidad { get; set; }
+        public Universidad? Universidad { get; set; }
         public required string EmpresaEmail { get; set; }
-        public required Empresa Empresa { get; set; }
+        public Empresa? Empresa { get; set; }
         public required string Material { get; set; }
         public required float Peso { get; set; }
         public required float Monto { get; set; }

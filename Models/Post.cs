@@ -8,5 +8,7 @@
         public required float Precio { get; set; }
         public required string Material { get; set; }
         public required float Peso { get; set; }
+        public required string UniversidadEmail { get; set; }
+        public Universidad? Universidad { get; set; }
     }
 }

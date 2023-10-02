@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecyclU.Data;
 using RecyclU.Models;
@@ -13,13 +8,14 @@ namespace RecyclU.Controllers
     public class UniversidadesController : Controller
     {
         private readonly RecyclUContext _context;
+        public static Universidad? universidad {  get; set; }
 
         public UniversidadesController(RecyclUContext context)
         {
             _context = context;
         }
 
-        // GET: Universidades
+        // GET: Universidads
         public async Task<IActionResult> Index()
         {
               return _context.Universidad != null ? 
@@ -27,7 +23,7 @@ namespace RecyclU.Controllers
                           Problem("Entity set 'RecyclUContext.Universidad'  is null.");
         }
 
-        // GET: Universidades/Details/5
+        // GET: Universidads/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Universidad == null)
@@ -45,7 +41,7 @@ namespace RecyclU.Controllers
             return View(universidad);
         }
 
-        // GET: Universidades/Create
+        // GET: Universidads/Create
         public IActionResult Create()
         {
             return View();
@@ -58,6 +54,7 @@ namespace RecyclU.Controllers
 
 
         // POST: Universidades/Create
+        // POST: Universidads/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -73,7 +70,7 @@ namespace RecyclU.Controllers
             return View(universidad);
         }
 
-        // GET: Universidades/Edit/5
+        // GET: Universidads/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Universidad == null)
@@ -89,7 +86,7 @@ namespace RecyclU.Controllers
             return View(universidad);
         }
 
-        // POST: Universidades/Edit/5
+        // POST: Universidads/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -124,7 +121,7 @@ namespace RecyclU.Controllers
             return View(universidad);
         }
 
-        // GET: Universidades/Delete/5
+        // GET: Universidads/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Universidad == null)
@@ -142,7 +139,7 @@ namespace RecyclU.Controllers
             return View(universidad);
         }
 
-        // POST: Universidades/Delete/5
+        // POST: Universidads/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
