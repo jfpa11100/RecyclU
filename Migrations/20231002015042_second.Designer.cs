@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecyclU.Data;
 
@@ -10,9 +11,11 @@ using RecyclU.Data;
 namespace RecyclU.Migrations
 {
     [DbContext(typeof(RecyclUContext))]
-    partial class RecyclUContextModelSnapshot : ModelSnapshot
+    [Migration("20231002015042_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,7 +30,7 @@ namespace RecyclU.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("EmpresaEmail")
                         .IsRequired()
@@ -62,7 +65,7 @@ namespace RecyclU.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -83,7 +86,6 @@ namespace RecyclU.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("UniversidadEmail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -160,13 +162,9 @@ namespace RecyclU.Migrations
 
             modelBuilder.Entity("RecyclU.Models.Post", b =>
                 {
-                    b.HasOne("RecyclU.Models.Universidad", "Universidad")
+                    b.HasOne("RecyclU.Models.Universidad", null)
                         .WithMany("Posts")
-                        .HasForeignKey("UniversidadEmail")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Universidad");
+                        .HasForeignKey("UniversidadEmail");
                 });
 
             modelBuilder.Entity("RecyclU.Models.Empresa", b =>
