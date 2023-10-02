@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecyclU.Data;
 using RecyclU.Models;
@@ -17,9 +18,8 @@ namespace RecyclU.Controllers
         // GET: Posts
         public async Task<IActionResult> Index()
         {
-              return _context.Post != null ? 
-                          View(await _context.Post.ToListAsync()) :
-                          Problem("Entity set 'RecyclUContext.Post'  is null.");
+            var recyclUContext = _context.Post.Include(p => p.Universidad);
+            return View(await recyclUContext.ToListAsync());
         }
 
         // GET: Posts/Details/5
@@ -31,6 +31,7 @@ namespace RecyclU.Controllers
             }
 
             var post = await _context.Post
+                .Include(p => p.Universidad)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (post == null)
             {
@@ -43,6 +44,7 @@ namespace RecyclU.Controllers
         // GET: Posts/Create
         public IActionResult Create()
         {
+            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email");
             return View();
         }
 
@@ -51,7 +53,7 @@ namespace RecyclU.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Imagen,Descripcion,Precio,Material,Peso")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,Imagen,Descripcion,Precio,Material,Peso,UniversidadEmail")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +61,8 @@ namespace RecyclU.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(post);
+            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", post.UniversidadEmail);
+            return RedirectToAction("Index", "Universidades");
         }
 
         // GET: Posts/Edit/5
@@ -75,6 +78,7 @@ namespace RecyclU.Controllers
             {
                 return NotFound();
             }
+            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", post.UniversidadEmail);
             return View(post);
         }
 
@@ -83,7 +87,7 @@ namespace RecyclU.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Imagen,Descripcion,Precio,Material,Peso")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Imagen,Descripcion,Precio,Material,Peso,UniversidadEmail")] Post post)
         {
             if (id != post.Id)
             {
@@ -110,6 +114,7 @@ namespace RecyclU.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", post.UniversidadEmail);
             return View(post);
         }
 
@@ -122,6 +127,7 @@ namespace RecyclU.Controllers
             }
 
             var post = await _context.Post
+                .Include(p => p.Universidad)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (post == null)
             {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecyclU.Data;
 using RecyclU.Models;
@@ -13,6 +8,7 @@ namespace RecyclU.Controllers
     public class EmpresasController : Controller
     {
         private readonly RecyclUContext _context;
+        public static Empresa? empresa { get; set; }
 
         public EmpresasController(RecyclUContext context)
         {
