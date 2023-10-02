@@ -9,8 +9,8 @@ namespace RecyclU.Models
         public required string Email { get; set; }
         public required string Contraseña { get; set; }
         public required string Nombre { get; set; }
-        public required string Logo { get; set; }
-        public required string Descripcion { get; set; }
+        public string? Logo { get; set; }
+        public string? Descripcion { get; set; }
 
     }
 }

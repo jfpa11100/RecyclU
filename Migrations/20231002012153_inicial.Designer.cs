@@ -11,15 +11,15 @@ using RecyclU.Data;
 namespace RecyclU.Migrations
 {
     [DbContext(typeof(RecyclUContext))]
-    [Migration("20230930215427_initialCreation")]
-    partial class initialCreation
+    [Migration("20231002012153_inicial")]
+    partial class inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "7.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

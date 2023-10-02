@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecyclU.Data;
 
@@ -10,9 +11,11 @@ using RecyclU.Data;
 namespace RecyclU.Migrations
 {
     [DbContext(typeof(RecyclUContext))]
-    partial class RecyclUContextModelSnapshot : ModelSnapshot
+    [Migration("20231002015042_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
