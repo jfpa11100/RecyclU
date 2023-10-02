@@ -1,4 +1,4 @@
-﻿@model RecyclU.Models.Post
+﻿@model RecyclU.Models.Negocio
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>Post</h4>
+<h4>Negocio</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,19 +14,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Imagen" class="control-label"></label>
-                <input asp-for="Imagen" class="form-control" />
-                <span asp-validation-for="Imagen" class="text-danger"></span>
+                <label asp-for="UniversidadEmail" class="control-label"></label>
+                <select asp-for="UniversidadEmail" class="form-control" asp-items="ViewBag.UniversidadEmail"></select>
+                <span asp-validation-for="UniversidadEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
+                <label asp-for="EmpresaEmail" class="control-label"></label>
+                <select asp-for="EmpresaEmail" class="form-control" asp-items="ViewBag.EmpresaEmail"></select>
+                <span asp-validation-for="EmpresaEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Material" class="control-label"></label>
@@ -39,9 +34,9 @@
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UniversidadEmail" class="control-label"></label>
-                <select asp-for="UniversidadEmail" class="form-control" asp-items="ViewBag.UniversidadEmail"></select>
-                <span asp-validation-for="UniversidadEmail" class="text-danger"></span>
+                <label asp-for="Monto" class="control-label"></label>
+                <input asp-for="Monto" class="form-control" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

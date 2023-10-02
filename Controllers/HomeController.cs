@@ -44,10 +44,14 @@ namespace RecyclU.Controllers
 
                 if (usuario is Empresa)
                 {
+                    // Guardar el usuario que entró
+                    EmpresasController.empresa = (Empresa?)usuario;
                     return RedirectToAction("Index", "Empresas");
                 }
                 else if (usuario is Universidad)
                 {
+                    // Guardar el usuario que entró
+                    UniversidadesController.universidad = (Universidad?)usuario;
                     return RedirectToAction("Index", "Universidades");
                 }
             }
@@ -56,6 +60,17 @@ namespace RecyclU.Controllers
             return View();
         }
 
+
+
+        public IActionResult Universidades()
+        {
+            return View();
+        }
+
+        public IActionResult Empresas()
+        {
+            return View();
+        }
 
 
         public IActionResult Privacy()
