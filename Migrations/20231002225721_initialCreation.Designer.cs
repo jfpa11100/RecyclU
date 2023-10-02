@@ -11,7 +11,7 @@ using RecyclU.Data;
 namespace RecyclU.Migrations
 {
     [DbContext(typeof(RecyclUContext))]
-    [Migration("20230930215427_initialCreation")]
+    [Migration("20231002225721_initialCreation")]
     partial class initialCreation
     {
         /// <inheritdoc />
@@ -86,6 +86,7 @@ namespace RecyclU.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("UniversidadEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -105,7 +106,6 @@ namespace RecyclU.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Discriminator")
@@ -113,7 +113,6 @@ namespace RecyclU.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Logo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
@@ -164,9 +163,13 @@ namespace RecyclU.Migrations
 
             modelBuilder.Entity("RecyclU.Models.Post", b =>
                 {
-                    b.HasOne("RecyclU.Models.Universidad", null)
+                    b.HasOne("RecyclU.Models.Universidad", "Universidad")
                         .WithMany("Posts")
-                        .HasForeignKey("UniversidadEmail");
+                        .HasForeignKey("UniversidadEmail")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Universidad");
                 });
 
             modelBuilder.Entity("RecyclU.Models.Empresa", b =>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecyclU.Data;
 using RecyclU.Models;
@@ -13,6 +8,7 @@ namespace RecyclU.Controllers
     public class EmpresasController : Controller
     {
         private readonly RecyclUContext _context;
+        public static Empresa? empresa { get; set; }
 
         public EmpresasController(RecyclUContext context)
         {
@@ -54,8 +50,8 @@ namespace RecyclU.Controllers
         // POST: Empresas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Email,Contraseña,Nombre,Logo,Descripcion")] Empresa empresa)
         {
             if (ModelState.IsValid)

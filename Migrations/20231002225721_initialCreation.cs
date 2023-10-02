@@ -17,8 +17,8 @@ namespace RecyclU.Migrations
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Logo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Logo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -66,7 +66,7 @@ namespace RecyclU.Migrations
                     Precio = table.Column<float>(type: "real", nullable: false),
                     Material = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Peso = table.Column<float>(type: "real", nullable: false),
-                    UniversidadEmail = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UniversidadEmail = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,7 +75,8 @@ namespace RecyclU.Migrations
                         name: "FK_Post_Usuario_UniversidadEmail",
                         column: x => x.UniversidadEmail,
                         principalTable: "Usuario",
-                        principalColumn: "Email");
+                        principalColumn: "Email",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
