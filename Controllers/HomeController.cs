@@ -57,18 +57,6 @@ namespace RecyclU.Controllers
         }
 
 
-
-        public IActionResult Universidades()
-        {
-            return View();
-        }
-
-        public IActionResult Empresas()
-        {
-            return View();
-        }
-
-
         public IActionResult Privacy()
         {
             return View();

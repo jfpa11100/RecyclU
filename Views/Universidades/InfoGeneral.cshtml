@@ -1,5 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Universidades";
+﻿@model IEnumerable<RecyclU.Models.Universidad>
+
+@{
+
+    ViewData["Title"] = "InfoGeneral";
     Layout = null;
 }
 
@@ -44,12 +47,13 @@
                 <button type="submit" class="btn btn-primary btn-lg">RECICLAR</button>
             </form>
 
-            <form asp-area="" asp-controller="Home" asp-action="Empresas" method="get" class="d-inline-block ml-3">
-                <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
+            
+            <form asp-area="" asp-controller="Empresas" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
+            <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
             </form>
 
-            <form asp-area="" asp-controller="Home" asp-action="Universidades" method="get" class="d-inline-block ml-3">
-                <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
+            <form asp-area="" asp-controller="Universidades" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
+            <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
             </form>
 
 
@@ -59,12 +63,15 @@
 
             <p>universidades</p>
 
+
+
+ 
+
         </div>
 
     </div>
 
 
-    <img src="" alt="logo" class="logo_recyclU">
 
 </body>
 

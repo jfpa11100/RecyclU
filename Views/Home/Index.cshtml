@@ -44,11 +44,11 @@
                 <button type="submit" class="btn btn-primary btn-lg">RECICLAR</button>
                 </form>
 
-                <form asp-area="" asp-controller="Home" asp-action="Empresas" method="get" class="d-inline-block ml-3">
+                <form asp-area="" asp-controller="Empresas" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
                 </form>
 
-                <form asp-area="" asp-controller="Home" asp-action="Universidades" method="get" class="d-inline-block ml-3">
+                <form asp-area="" asp-controller="Universidades" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
                 </form>
 
@@ -57,7 +57,54 @@
 
             <div class="derecha">
 
-                <p>texto</p>
+                <h1>¿Qué es Reciclar?</h1>
+                <p>Las estrategias de promoción de reciclaje se basan en la reducción, reutilización y reciclaje para concientizar a la población acerca de la importancia y el impacto del aprovechamiento de los residuos para proteger el medio ambiente.</p>
+
+                <h2>Reducir</h2>
+                <p>Reducir el consumo y uso de productos para disminuir la cantidad de basura generada.</p>
+
+
+
+                <h2>Reutilizar</h2>
+
+                
+                <p>Dar más utilidad a los productos, especialmente bolsas y envases.</p>
+
+
+
+
+
+                <h2>Reciclar</h2>
+
+                
+                <p>Transformación completa de los residuos, creando nuevos productos.</p>
+
+                <h1>¿Por Qué Reciclar?</h1>
+                <p>Reciclar ayuda a minimizar el impacto negativo sobre los recursos naturales, reduciendo la contaminación y revertiendo el cambio climático.</p>
+                <p>Reducir el volumen de los residuos sólidos, se reduce entonces la contaminación.</p>
+                <p>Hacer uso de estos residuos para fabricar un nuevo producto hecho de material reciclado, ahorra energía, disminuye el uso del petróleo y reduce costos de producción.</p>
+
+                <h1>¿Cómo Reciclar?</h1>
+                <p>La cadena de valor de los residuos sólidos inicia con su debida separación en canecas o depósitos de colores:</p>
+
+                <h2>Caneca gris</h2>
+
+                
+                <p>Para papel escrito, impreso y roto, que no contiene clips ni ganchos metálicos. No debe estar sucio con otros materiales.</p>
+
+                <h2>Caneca verde</h2>
+
+                
+
+
+                <p>Para residuos ordinarios, es decir, que no se pueden reciclar, como papel carbón, mantequilla, aluminio, higiénico, de cocina, celofán; pañuelos; toallas higiénicas; servilletas utilizadas; plastificados; restos de alimentos; metalizados, icopor, chicles y residuos de barridos.</p>
+
+                <h2>Caneca azul</h2>
+                <p>Para envases de bebidas no retornables, vasos desechables, bolsas plásticas, entre otros recipientes plásticos y que estén vacíos.</p>
+
+                <h2>Caneca roja</h2>
+                <p>Esta se usa únicamente en laboratorios, consultorios y/o puntos de enfermería. Allí se depositan residuos de curación, guantes, gasas, algodones, entre otros. Además, residuos orgánicos o inorgánicos, corrosivos, tóxicos o inflamables.</p>
+
 
             </div>
 
@@ -160,10 +207,27 @@
                 padding: 15px;
                 text-align: center;
                 position: center;
-                display: flex;
                 justify-content: center;
                 align-items: center;
+
+
             }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
 
 
             .contenedor .izquierda button {

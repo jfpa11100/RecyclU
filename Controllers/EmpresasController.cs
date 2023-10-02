@@ -51,6 +51,13 @@ namespace RecyclU.Controllers
             return View();
         }
 
+        public async Task<IActionResult> InfoGeneral()
+        {
+            return _context.Empresa != null ?
+                         View(await _context.Empresa.ToListAsync()) :
+                         Problem("Entity set 'RecyclUContext.Empresa'  is null.");
+        }
+
         // POST: Empresas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
