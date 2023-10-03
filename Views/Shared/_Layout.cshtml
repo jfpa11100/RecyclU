@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using RecyclU.Controllers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,22 +11,33 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RecyclU</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 custom-navbar-bg">
+            <div class="container-fluid" style="max-height: 70px;">
+
+                <img src="~/Imagenes/u_recyclU.jpeg" alt="User" style="width: 5%; height: 5%; object-fit: cover;border-radius: 50%;" />
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Imagenes/logo_recyclU_def.png" alt="RecyclU" style="width: 25%; height: 10%;" />
+                </a>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
                         </li>
                     </ul>
+                    @if(UniversidadesController.universidad != null || EmpresasController.empresa != null){
+
+                        //Debe aparecer el perfil del que entró aquí
+                        
+                    }
+                    else
+                    {
+                        <div class="ml-auto">
+                            <a class="btn btn-success btn-lg" asp-controller="Home" asp-action="LogIn">Log In</a>
+                            <a class="btn btn-success btn-lg" asp-controller="Usuarios" asp-action="Create">Sign In</a>
+                        </div>
+                    }
                 </div>
             </div>
         </nav>
@@ -41,9 +53,10 @@
             &copy; 2023 - RecyclU - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </html>
