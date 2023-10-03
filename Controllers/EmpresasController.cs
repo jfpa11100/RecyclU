@@ -16,11 +16,16 @@ namespace RecyclU.Controllers
         }
 
         // GET: Empresas
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Empresa != null ? 
-                          View(await _context.Empresa.ToListAsync()) :
-                          Problem("Entity set 'RecyclUContext.Empresa'  is null.");
+            if (empresa == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Posts");
+            }
         }
 
         // GET: Empresas/Details/5
