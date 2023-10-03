@@ -52,9 +52,11 @@ namespace RecyclU.Controllers
             return View();
         }
 
-        public IActionResult InfoGeneral()
+        public async Task<IActionResult> InfoGeneral()
         {
-            return View();
+            return _context.Universidad != null ?
+                         View(await _context.Universidad.ToListAsync()) :
+                         Problem("Entity set 'RecyclUContext.Universidad'  is null.");
         }
 
 
