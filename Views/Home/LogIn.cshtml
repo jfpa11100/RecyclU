@@ -3,31 +3,29 @@
     Layout = null;
 }
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>inicio</title>
-        <link rel="stylesheet" href="pp.css">
-    </head>
-    <body>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecyclU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
+</head>
+<body>
     <div class="grande">
         <div class="todo">
             <div class="izquierda">
-
                 <img src="https://1000marcas.net/wp-content/uploads/2020/02/Logo-Recycle.png">
-
             </div>
             
             
-            <div class="derecha">
+            <div class="derecha text-center mt-3">
                 <form asp-action="LogIn">
                     
                     <div class="contenido">
                         <input type="email" class="form-control" id="Email" name="Email" placeholder="EMAIL" />
-
                     </div>
                     
                     <div class="contenido">
@@ -35,122 +33,14 @@
                     </div>
                 
                     <div class="contenido">
-                        <button type="submit" value="LogIn" class="btn btn-primary btn-block">INICIAR SESIÓN</button>
+                        <button type="submit" value="LogIn" class="btn btn-primary">INICIAR SESIÓN</button>
                     </div>
-                
+                    <div class="contenido">
+                        <a asp-controller="Usuarios" asp-action="Create">¿AÚN NO TIENES UNA CUENTA REGISTRADA?</a>
+                    </div>
                 </form>
-                <div class="text-center mt-3">
-                    <a asp-controller="Usuarios" asp-action="Create">¿AÚN NO TIENES UNA CUENTA REGISTRADA?</a>
-                </div>
+            </div>
         </div>
     </div>
-
-    </body>
-
-
-    <style type="text/css">
-
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .todo{
-            background: #A0D77C;
-            margin-top: 2%;
-            margin-left:10%;
-            margin-right:10%;
-            margin-bottom:2%;
-            height: 90vh;
-            border-radius: 30px;
-            justify-content: center;
-            align-items: center;
-            display: grid;
-            grid-template-columns: 2fr 4.5fr;
-            position: relative;
-            
-        }
-
-        .todo .izquierda{
-            background: #31A51E;
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-            border-top-left-radius:30px;
-            border-bottom-left-radius:30px;
-            display:flex;
-
-        }
-
-
-        .todo .izquierda img{
-            background:white;
-            height: 280px;
-            width: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: top;
-            padding:20px;   
-        }
-
-        .todo .derecha{
-            height: 90vh;
-            border-top-right-radius:30px;
-            border-bottom-right-radius:30px;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: 12px;
-
-        }
-
-        input{
-        
-        border-radius: 30px;
-        width: 100%; 
-        height: 30px;
-        padding:10px;
-        border:0;
-        
-        }
-
-        .contenido{
-        
-        margin: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        height: 40px;
-        }
-
-
-        form{
-        
-        max-width: 450px; 
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height:200px;
-        margin-bottom:20px;
-
-        }
-
-        a{
-            text-decoration:none;
-            color:black;
-        }
-
-        button{
-        background: #096297;
-        color:white;
-        border-radius:25px;
-        padding: 12px;
-        width: 30%;
-    }
+</body>
 </html>

@@ -19,6 +19,10 @@ namespace RecyclU.Controllers
 
         public IActionResult Index()
         {
+            // "Cerrar sesión cada vez que se vaya al home"
+            UniversidadesController.universidad = null;
+            EmpresasController.empresa = null;
+
             return View();
         }
 

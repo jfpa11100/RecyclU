@@ -1,245 +1,94 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-    Layout = null;
+    ViewData["Title"] = "RecyclU";
+    Layout = "_Layout";
 }
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>inicio</title>
-        <link rel="stylesheet" href="pp.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>RecyclU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="contenedor">
+        <div class="izquierda">
 
-        <header>
-
-        <div class="logo">
-            <img src="@Url.Content("~/imagenes/logo_recyclU_def.png")" alt="logo" class="logo_recyclU">
-            <img src="@Url.Content("~/imagenes/u_recyclU.jpeg")" alt="img_u" class="u_recyclu">
-
-        </div>
-        <nav>
-
-            <form asp-area="" asp-controller="Home" asp-action="LogIn" method="get" class="d-inline-block ml-3">
-            <button type="submit" class="btn btn-primary btn-lg">Log In</button>
-            </form>
-            <form asp-area="" asp-controller="Usuarios" asp-action="Create" method="get" class="d-inline-block ml-3">
-            <button type="submit" class="btn btn-secondary btn-lg">Sign Up</button>
-            </form>
-
-        </nav>
-
-     
-    </header>
-
-        <div class="contenedor">
-
-            
-
-            <div class="izquierda">
-
-                <form asp-area="" asp-controller="Home" asp-action="Index" method="get" class="d-inline-block ml-3">
+            <form asp-area="" asp-controller="Home" asp-action="Index" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">RECICLAR</button>
-                </form>
+            </form>
 
-                <form asp-area="" asp-controller="Empresas" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
+            <form asp-area="" asp-controller="Empresas" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
-                </form>
+            </form>
 
-                <form asp-area="" asp-controller="Universidades" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
+            <form asp-area="" asp-controller="Universidades" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
-                </form>
+            </form>
 
-
-            </div>
-
-            <div class="derecha">
-
-                <h1>¿Qué es Reciclar?</h1>
-                <p>Las estrategias de promoción de reciclaje se basan en la reducción, reutilización y reciclaje para concientizar a la población acerca de la importancia y el impacto del aprovechamiento de los residuos para proteger el medio ambiente.</p>
-
-                <h2>Reducir</h2>
-                <p>Reducir el consumo y uso de productos para disminuir la cantidad de basura generada.</p>
-
-
-
-                <h2>Reutilizar</h2>
-
-                
-                <p>Dar más utilidad a los productos, especialmente bolsas y envases.</p>
-
-
-
-
-
-                <h2>Reciclar</h2>
-
-                
-                <p>Transformación completa de los residuos, creando nuevos productos.</p>
-
-                <h1>¿Por Qué Reciclar?</h1>
-                <p>Reciclar ayuda a minimizar el impacto negativo sobre los recursos naturales, reduciendo la contaminación y revertiendo el cambio climático.</p>
-                <p>Reducir el volumen de los residuos sólidos, se reduce entonces la contaminación.</p>
-                <p>Hacer uso de estos residuos para fabricar un nuevo producto hecho de material reciclado, ahorra energía, disminuye el uso del petróleo y reduce costos de producción.</p>
-
-                <h1>¿Cómo Reciclar?</h1>
-                <p>La cadena de valor de los residuos sólidos inicia con su debida separación en canecas o depósitos de colores:</p>
-
-                <h2>Caneca gris</h2>
-
-                
-                <p>Para papel escrito, impreso y roto, que no contiene clips ni ganchos metálicos. No debe estar sucio con otros materiales.</p>
-
-                <h2>Caneca verde</h2>
-
-                
-
-
-                <p>Para residuos ordinarios, es decir, que no se pueden reciclar, como papel carbón, mantequilla, aluminio, higiénico, de cocina, celofán; pañuelos; toallas higiénicas; servilletas utilizadas; plastificados; restos de alimentos; metalizados, icopor, chicles y residuos de barridos.</p>
-
-                <h2>Caneca azul</h2>
-                <p>Para envases de bebidas no retornables, vasos desechables, bolsas plásticas, entre otros recipientes plásticos y que estén vacíos.</p>
-
-                <h2>Caneca roja</h2>
-                <p>Esta se usa únicamente en laboratorios, consultorios y/o puntos de enfermería. Allí se depositan residuos de curación, guantes, gasas, algodones, entre otros. Además, residuos orgánicos o inorgánicos, corrosivos, tóxicos o inflamables.</p>
-
-
-            </div>
 
         </div>
 
+        <div class="derecha">
 
-    <img src="" alt="logo" class="logo_recyclU">
+            <h1>¿Qué es Reciclar?</h1>
+            <p>Las estrategias de promoción de reciclaje se basan en la reducción, reutilización y reciclaje para concientizar a la población acerca de la importancia y el impacto del aprovechamiento de los residuos para proteger el medio ambiente.</p>
 
-    </body>
+            <h2>Reducir</h2>
+            <p>Reducir el consumo y uso de productos para disminuir la cantidad de basura generada.</p>
 
-        <style type="text/css">
-            
-            body{
-                font-family: sans-serif;
-                margin: 0;
-                padding:0;
 
-                }
+
+            <h2>Reutilizar</h2>
+
                 
-            header{
-            display:flex;
-            height: 70px;
-            background: #A0D77C;
-
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            margin:0;
-
-           
-
-            }
-            
-            .logo{
-            
-                display: flex;
-                align-items: center;
-            }
-
-            .logo img{
-                height:auto;
-                width:auto;
-
-            
-            }
-
-            nav{
-            display: flex;
-            justify-content:space-between;
-            align-items: center;
-            gap:10px;
-            padding-bottom:0;
-
-            
-      
-            }
-
-            nav button{
-            
-                padding:12px;
-                background: #31A51E;
-                color:white;
-                font-weight:bold;
-                border-radius: 10px;
-                border-color: #31A51E;
-
-            }
-
-            .contenedor{
-                background: white;
-                min-height:90vh;
-                margin:0;
-                display: grid;
-                grid-template-columns: 1fr 3.1fr;
-                position:relative;
-            }
-
-            .contenedor .izquierda{
-
-                margin:30px;
-                border-radius:30px;
-                background: #31A51E;
-                padding: 15px;
-                text-align: center;
-                position: center;
-                display: flex;
-                flex-direction:column;
-                flex-wrap: wrap;
-                gap: 12px;
-                justify-content: center;
-                align-items: center;
-
-            }
-            
-            .contenedor .derecha{
-                margin: 30px;
-                border-radius: 30px;
-                background: rgb(233, 238, 237);
-                padding: 15px;
-                text-align: center;
-                position: center;
-                justify-content: center;
-                align-items: center;
-
-
-            }
-
-            h1 {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-
-            h2 {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-
-            p {
-                font-size: 16px;
-                margin-bottom: 12px;
-            }
+            <p>Dar más utilidad a los productos, especialmente bolsas y envases.</p>
 
 
 
-            .contenedor .izquierda button {
-                padding: 18px;
-                background: #31A51E;
-                color: white;
-                font-weight: bold;
-                border:0;
-                font-size: 20px;
 
-            }
-        </style>
-    </html>
+
+            <h2>Reciclar</h2>
+
+                
+            <p>Transformación completa de los residuos, creando nuevos productos.</p>
+
+            <h1>¿Por Qué Reciclar?</h1>
+            <p>Reciclar ayuda a minimizar el impacto negativo sobre los recursos naturales, reduciendo la contaminación y revertiendo el cambio climático.</p>
+            <p>Reducir el volumen de los residuos sólidos, se reduce entonces la contaminación.</p>
+            <p>Hacer uso de estos residuos para fabricar un nuevo producto hecho de material reciclado, ahorra energía, disminuye el uso del petróleo y reduce costos de producción.</p>
+
+            <h1>¿Cómo Reciclar?</h1>
+            <p>La cadena de valor de los residuos sólidos inicia con su debida separación en canecas o depósitos de colores:</p>
+
+            <h2>Caneca gris</h2>
+
+                
+            <p>Para papel escrito, impreso y roto, que no contiene clips ni ganchos metálicos. No debe estar sucio con otros materiales.</p>
+
+            <h2>Caneca verde</h2>
+
+                
+
+
+            <p>Para residuos ordinarios, es decir, que no se pueden reciclar, como papel carbón, mantequilla, aluminio, higiénico, de cocina, celofán; pañuelos; toallas higiénicas; servilletas utilizadas; plastificados; restos de alimentos; metalizados, icopor, chicles y residuos de barridos.</p>
+
+            <h2>Caneca azul</h2>
+            <p>Para envases de bebidas no retornables, vasos desechables, bolsas plásticas, entre otros recipientes plásticos y que estén vacíos.</p>
+
+            <h2>Caneca roja</h2>
+            <p>Esta se usa únicamente en laboratorios, consultorios y/o puntos de enfermería. Allí se depositan residuos de curación, guantes, gasas, algodones, entre otros. Además, residuos orgánicos o inorgánicos, corrosivos, tóxicos o inflamables.</p>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
 
 
 

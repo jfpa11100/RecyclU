@@ -1,75 +1,39 @@
-﻿@model IEnumerable<RecyclU.Models.Universidad>
-
+﻿@model IEnumerable<RecyclU.Models.Usuario>
 @{
-
-    ViewData["Title"] = "InfoGeneral";
-    Layout = null;
+    ViewData["Title"] = "Universidades";
+    Layout = "_Layout";
 }
-
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
-    <link rel="stylesheet" href="pp.css">
+    <title>RecyclU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
 </head>
 <body>
-
-    <header>
-
-        <div class="logo">
-            <img src="@Url.Content("~/imagenes/logo_recyclU_def.png")" alt="logo" class="logo_recyclU">
-            <img src="@Url.Content("~/imagenes/u_recyclU.jpeg")" alt="img_u" class="u_recyclu">
-
-        </div>
-        <nav>
-
-            <form asp-area="" asp-controller="Home" asp-action="LogIn" method="get" class="d-inline-block ml-3">
-                <button type="submit" class="btn btn-primary btn-lg">Log In</button>
-            </form>
-            <form asp-area="" asp-controller="Usuarios" asp-action="Create" method="get" class="d-inline-block ml-3">
-                <button type="submit" class="btn btn-secondary btn-lg">Sign Up</button>
-            </form>
-
-        </nav>
-
-
-    </header>
-
     <div class="contenedor">
-
-
-
         <div class="izquierda">
-
             <form asp-area="" asp-controller="Home" asp-action="Index" method="get" class="d-inline-block ml-3">
                 <button type="submit" class="btn btn-primary btn-lg">RECICLAR</button>
             </form>
-
-            
             <form asp-area="" asp-controller="Empresas" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
-            <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
+                <button type="submit" class="btn btn-primary btn-lg">EMPRESAS</button>
             </form>
-
             <form asp-area="" asp-controller="Universidades" asp-action="InfoGeneral" method="get" class="d-inline-block ml-3">
-            <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
+                <button type="submit" class="btn btn-primary btn-lg">UNIVERSIDADES</button>
             </form>
-
-
         </div>
-
         <div class="derecha">
-
-            <p>universidades</p>
-
             <table class="table">
                 <thead>
                     <tr>
                         <th>
+                            @Html.DisplayNameFor(model => model.Logo)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.Nombre)
                         </th>
-
                         <th>
                             @Html.DisplayNameFor(model => model.Descripcion)
                         </th>
@@ -84,7 +48,9 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Logo)
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nombre)
                             </td>
@@ -102,14 +68,9 @@
                 </tbody>
             </table>
 
- 
-
         </div>
 
     </div>
-
-
-
 </body>
 
 <style type="text/css">
@@ -118,16 +79,6 @@
         font-family: sans-serif;
         margin: 0;
         padding: 0;
-    }
-
-    header {
-        display: flex;
-        height: 70 px;
-        background: #A0D77C;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        margin: 0;
     }
 
     .logo {
@@ -173,7 +124,6 @@
             padding: 15px;
             text-align: center;
             position: center;
-            rgb(233, 238, 237);
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -204,4 +154,3 @@
             font-size: 20px;
         }
 </style>
-</html>
