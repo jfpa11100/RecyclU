@@ -1,24 +1,30 @@
 {
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:26036",
+      "sslPort": 44384
+    }
+  },
   "profiles": {
     "http": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Users\\HOME\\source\\repos\\RecyclU\\",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
+      "applicationUrl": "http://localhost:5051",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5051"
+      }
     },
     "https": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Users\\HOME\\source\\repos\\RecyclU\\",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:7143;http://localhost:5051",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7143;http://localhost:5051"
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -26,14 +32,6 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    }
-  },
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:26036",
-      "sslPort": 44384
     }
   }
 }
