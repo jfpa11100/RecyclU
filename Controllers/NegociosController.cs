@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using RecyclU.Data;
 using RecyclU.Models;
 
@@ -61,6 +62,13 @@ namespace RecyclU.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,UniversidadEmail,EmpresaEmail,Material,Peso,Monto")] Negocio negocio)
         {
+            var universidad = await _context.Universidad.FindAsync(negocio.UniversidadEmail);
+            var empresa = await _context.Empresa.FindAsync(negocio.EmpresaEmail);
+            if (universidad != null && empresa != null)
+            {
+                negocio.Universidad = (Universidad)universidad;
+                negocio.Empresa = (Empresa)empresa;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(negocio);

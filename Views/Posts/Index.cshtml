@@ -1,5 +1,4 @@
-﻿@using RecyclU.Controllers;
-@model IEnumerable<RecyclU.Models.Post>
+﻿@model IEnumerable<RecyclU.Models.Post>
 
 @{
     ViewData["Title"] = "Index";
@@ -37,66 +36,38 @@
     <tbody>
 
 @foreach (var item in Model) {
-            if (UniversidadesController.universidad != null)
-            {
-                if(item.UniversidadEmail == UniversidadesController.universidad.Email)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Imagen)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Descripcion)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Precio)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Material)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Peso)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Universidad.Email)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-
-            }
-            else
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Imagen)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Precio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Material)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Peso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Universidad.Email)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Universidad.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+        
     </tbody>
 </table>
+
+<div class="fixed-bottom d-flex justify-content-between text-white mr-3 mb-3">
+    <a asp-controller="Posts" asp-action="Create" class="btn btn-success mr-auto">
+        <i class="bi bi-plus-circle"></i> Add New
+    </a>
+</div>
