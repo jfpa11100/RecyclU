@@ -22,6 +22,12 @@ namespace RecyclU.Controllers
             return View(await recyclUContext.ToListAsync());
         }
 
+        public async Task<IActionResult> UniversidadPosts()
+        {
+            var recyclUContext = _context.Post.Include(p => p.Universidad);
+            return View(await recyclUContext.ToListAsync());
+        }
+
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -45,7 +51,12 @@ namespace RecyclU.Controllers
         public IActionResult Create()
         {
             ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email");
-            return View();
+            if (UniversidadesController.universidad != null)
+                return View();
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // POST: Posts/Create
@@ -55,14 +66,19 @@ namespace RecyclU.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Imagen,Descripcion,Precio,Material,Peso,UniversidadEmail")] Post post)
         {
+            var universidad = await _context.Universidad
+            .FirstOrDefaultAsync(m => m.Email == post.UniversidadEmail);
+
+            post.Universidad = universidad;
+
             if (ModelState.IsValid)
             {
                 _context.Add(post);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("UniversidadPosts");
             }
             ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", post.UniversidadEmail);
-            return RedirectToAction("Index", "Universidades");
+            return RedirectToAction("UniversidadPosts");
         }
 
         // GET: Posts/Edit/5
@@ -112,7 +128,7 @@ namespace RecyclU.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("UniversidadPosts");
             }
             ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", post.UniversidadEmail);
             return View(post);
@@ -153,7 +169,7 @@ namespace RecyclU.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("UniversidadPosts");
         }
 
         private bool PostExists(int id)

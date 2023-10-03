@@ -16,11 +16,16 @@ namespace RecyclU.Controllers
         }
 
         // GET: Universidads
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Universidad != null ? 
-                          View(await _context.Universidad.ToListAsync()) :
-                          Problem("Entity set 'RecyclUContext.Universidad'  is null.");
+            if (universidad == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("UniversidadPosts","Posts");
+            }
         }
 
         // GET: Universidads/Details/5

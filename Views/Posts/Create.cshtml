@@ -1,5 +1,5 @@
 ﻿@model RecyclU.Models.Post
-
+@using RecyclU.Controllers
 @{
     ViewData["Title"] = "Create";
 }
@@ -12,6 +12,9 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="UniversidadEmail" value="@UniversidadesController.universidad.Email" />
+
             <div class="form-group">
                 <label asp-for="Imagen" class="control-label"></label>
                 <input asp-for="Imagen" class="form-control" />
@@ -38,10 +41,6 @@
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UniversidadEmail" class="control-label"></label>
-                <select asp-for="UniversidadEmail" class ="form-control" asp-items="ViewBag.UniversidadEmail"></select>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -49,7 +48,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Home</a>
 </div>
 
 @section Scripts {
