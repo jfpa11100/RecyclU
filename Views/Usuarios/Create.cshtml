@@ -1,48 +1,65 @@
 ﻿@model RecyclU.Models.Usuario
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registro";
+    Layout = null;
 }
 
-<h1>Registro</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecyclU - Registro</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
+</head>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" id="signupForm">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label for="Discriminator">Tipo de Entidad</label>
-                <select class="form-control" id="Discriminator" name="Discriminator">
-                    <option value="Empresa">Empresa</option>
-                    <option value="Universidad">Universidad</option>
-                </select>
+<body>
+    <div class="grande">
+        <div class="todo">
+            <div class="izquierda">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" style="border-radius:50%;">
+                </a>
             </div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+
+            <div class="derecha text-center mt-3">
+                <form asp-action="Create" id="signupForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="contenido">
+                        <label for="Discriminator"></label>
+                        <select class="form-control" id="Discriminator" name="Discriminator">
+                            <option >TIPO DE ENTIDAD</option>
+                            <option value="Empresa">EMPRESA</option>
+                            <option value="Universidad">UNIVERSIDAD</option>
+                        </select>
+                    </div>
+
+                    <div class="contenido">
+                        <input asp-for="Nombre" class="form-control" placeholder="NOMBRE DE LA ENTIDAD" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="contenido">
+                        <input asp-for="Email" class="form-control" placeholder="EMAIL" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="contenido">
+                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="CONTRASEÑA" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+
+                    <div class="contenido">
+                        <button type="submit" value="Añadir cuenta" class="btn btn-primary">AÑADIR CUENTA</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contraseña" class="control-label"></label>
-                <input type="password" asp-for="Contraseña" class="form-control" />
-                <span asp-validation-for="Contraseña" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-controller="Home" asp-action="Index">Volver al inicio</a>
-</div>
-
+</body>
+</html>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

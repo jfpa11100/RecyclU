@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecyclU</title>
+    <title>RecyclU - Inicio sesión</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
@@ -17,13 +17,13 @@
     <div class="grande">
         <div class="todo">
             <div class="izquierda">
-                <img src="https://1000marcas.net/wp-content/uploads/2020/02/Logo-Recycle.png">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" style="border-radius:50%;">
+                </a>
             </div>
-            
             
             <div class="derecha text-center mt-3">
                 <form asp-action="LogIn">
-                    
                     <div class="contenido">
                         <input type="email" class="form-control" id="Email" name="Email" placeholder="EMAIL" />
                     </div>
@@ -35,6 +35,7 @@
                     <div class="contenido">
                         <button type="submit" value="LogIn" class="btn btn-primary">INICIAR SESIÓN</button>
                     </div>
+
                     <div class="contenido">
                         <a asp-controller="Usuarios" asp-action="Create">¿AÚN NO TIENES UNA CUENTA REGISTRADA?</a>
                     </div>
