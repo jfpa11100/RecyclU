@@ -1,7 +1,7 @@
 ﻿@model RecyclU.Models.Usuario
 @{
     ViewData["Title"] = "Registro";
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="contenido">
                         <label for="Discriminator"></label>
-                        <select class="form-control" id="Discriminator" name="Discriminator">
+                        <select class="form-control" id="Discriminator" name="Discriminator" style="border-radius:25px">
                             <option >TIPO DE ENTIDAD</option>
                             <option value="Empresa">EMPRESA</option>
                             <option value="Universidad">UNIVERSIDAD</option>
@@ -37,17 +37,17 @@
                     </div>
 
                     <div class="contenido">
-                        <input asp-for="Nombre" class="form-control" placeholder="NOMBRE DE LA ENTIDAD" />
+                        <input asp-for="Nombre" class="form-control" placeholder="NOMBRE DE LA ENTIDAD" style="border-radius:25px" />
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
 
                     <div class="contenido">
-                        <input asp-for="Email" class="form-control" placeholder="EMAIL" />
+                        <input asp-for="Email" class="form-control" placeholder="EMAIL" style="border-radius:25px" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
                     <div class="contenido">
-                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="CONTRASEÑA" />
+                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="CONTRASEÑA" style="border-radius:25px" />
                         <span asp-validation-for="Contraseña" class="text-danger"></span>
                     </div>
 
