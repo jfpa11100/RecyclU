@@ -13,29 +13,50 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 custom-navbar-bg">
             <div class="container-fluid" style="max-height: 70px;">
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" alt="U" style="width:70px; height: 10%; border-radius: 50%; display: block;" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="margin-left:20px; margin-right:0;">
+                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" alt="U" style="width:70px; height: 10%; border-radius: 50%; display: block;"/>
                 </a>
-                <img src="~/Imagenes/logo_recyclU_def.png" alt="RecyclU" style="width: 250px; height: 10%;" />
+                <img src="~/Imagenes/logo_recyclU_def.png" alt="RecyclU" style="width: 250px; height: 10%; padding-left:0px;"/>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-
+                           
                         </li>
                     </ul>
-                    @if (UniversidadesController.universidad != null || EmpresasController.empresa != null)
+                    @if (UniversidadesController.universidad != null)
                     {
-
-                        //Debe aparecer el perfil del que entró aquí
-
+                        <div class="ml-auto">
+                                @if (UniversidadesController.universidad.Logo == null)
+                                {
+                                    <img src="~/Imagenes/unknownProfile.png" style="width:70px; height: 10%">
+                                }
+                                else
+                                {
+                                    <img src="@UniversidadesController.universidad.Logo" style="width:70px; height: 10%">
+                                }
+                        </div>
+                          
+                    }
+                    else if (EmpresasController.empresa != null)
+                    {
+                        <div class="ml-auto">
+                            @if (EmpresasController.empresa.Logo == null)
+                            {
+                                <img src="~/Imagenes/unknownProfile.png" style="width:70px; height: 10%">
+                            }
+                            else
+                            {
+                                <img src="@EmpresasController.empresa.Logo" style="width:70px; height: 10%">
+                            }
+                        </div>
                     }
                     else
                     {
-                        <div class="ml-auto">
-                            <a class="editar" asp-controller="Home" asp-action="LogIn">Iniciar sesión</a>
+                        <div class="ml-auto" style="margin-right:20px;">
+                            <a class="editar" asp-controller="Home" asp-action="LogIn">INICIAR SESIÓN</a>
 
-                            <a class="editar" asp-controller="Usuarios" asp-action="Create">Registrarse</a>
+                            <a class="editar" asp-controller="Usuarios" asp-action="Create" style="margin-left:10px;">REGISTRARSE</a>
                         </div>
                     }
                 </div>
@@ -47,12 +68,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - RecyclU - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
 </body>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

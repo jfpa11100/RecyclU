@@ -1,76 +1,54 @@
-﻿@using RecyclU.Controllers;
+﻿@using RecyclU.Controllers
 @model IEnumerable<RecyclU.Models.Post>
-
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecyclU - Posts</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="contenedor2">
+        <table class="table-data">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (item.UniversidadEmail == UniversidadesController.universidad.Email)
+                    {
+                        <tr>
+                            <td>
+                                @{
+                                    string url = item.Imagen;
+                                }
+                                <img src="@Url.Content("~/" + url)" alt="Imagen" class="img_post">
+                                <br>
+                                <br>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                                <br>
+                                <br>
+                                <form method="get" asp-action="Details" asp-route-id="@item.Id">
+                                    <button type="submit" class="ver-mas-button">VER MÁS</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
 
-<h1>Index</h1>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="fixed-bottom d-flex justify-content-center text-white mb-3">
+        <a asp-controller="Posts" asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Añadir nuevo Post
+        </a>
+    </div>
+</body>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Peso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Universidad)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-
-@foreach (var item in Model) {
-        if(item.UniversidadEmail == UniversidadesController.universidad.Email)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Imagen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Precio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Material)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Peso)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Universidad.Email)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-
-    }
-    </tbody>
-</table>
-<div class="fixed-bottom d-flex justify-content-center text-white mb-3">
-    <a asp-controller="Posts" asp-action="Create" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Add New
-    </a>
-</div>
+</html>

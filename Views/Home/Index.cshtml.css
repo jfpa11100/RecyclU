@@ -44,14 +44,18 @@ nav {
 .contenedor {
     background: white;
     min-height: 90vh;
-    margin: 0;
+    margin-left:0;
+    margin-right:0;
     display: grid;
     grid-template-columns: 1fr 3.1fr;
     position: relative;
 }
 
     .contenedor .izquierda {
-        margin: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 0;
+        margin-right: 0px;
         border-radius: 30px;
         background: #31A51E;
         padding: 15px;
@@ -68,6 +72,7 @@ nav {
     .contenedor .derecha {
         margin: 30px;
         border-radius: 30px;
+        margin-right:0;
         background: rgb(233, 238, 237);
         padding: 15px;
         text-align: center;
@@ -76,19 +81,104 @@ nav {
         align-items: center;
     }
 
+
+
+        .contenedor .derecha .uno {
+            min-height: 30vh;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr;
+            position: relative;
+        }
+
+
+            .contenedor .derecha .uno ul li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .contenedor .derecha .uno ul {
+                padding: 0;
+            }
+
+
+
+
+
+        .contenedor .derecha .dos ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .contenedor .derecha .dos ul li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+                .contenedor .derecha .dos ul li:before {
+                    content: "\2022";
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+
+
+
+        .contenedor .derecha .tres {
+            min-height: 30vh;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr;
+            position: relative;
+        }
+
+
+            .contenedor .derecha .tres ul li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .contenedor .derecha .tres ul {
+                padding: 0;
+            }
+
+            .contenedor .derecha .tres h2 {
+                font-size: 20px;
+                margin-bottom: 8px;
+                text-align: center;
+                display: inline-block;
+                margin-right: 10px;
+                font-size: 15px;
+            }
+
+
+
+
 h1 {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 h2 {
     font-size: 20px;
     margin-bottom: 8px;
+    text-align: left;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 15px;
 }
 
 p {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 12px;
+    text-align: left;
+    text-align:justify;
+    display: inline-block;
 }
 
 
@@ -100,4 +190,9 @@ p {
     font-weight: bold;
     border: 0;
     font-size: 20px;
+}
+
+
+h1 {
+    color: green;
 }

@@ -35,9 +35,6 @@
                             @Html.DisplayNameFor(model => model.Nombre)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Descripcion)
-                        </th>
-                        <th>
                             @Html.DisplayNameFor(model => model.Email)
                         </th>
 
@@ -49,20 +46,22 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Logo)
+                                @if(item.Logo is null)
+                                {
+                                    <img src="~/Imagenes/UnknownEmpresa.png" style="width:50px; heigth:50px;">
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.Logo)
+                                }
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nombre)
                             </td>
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Descripcion)
-                            </td>
-
                             <td>
                                 @Html.DisplayFor(modelItem => item.Email)
                             </td>
-                          
+                            <th></th>
                         </tr>
                     }
                 </tbody>
@@ -121,14 +120,18 @@
                 background: white;
                 min-height:90vh;
                 margin:0;
+                margin-right: 0;
+                margin-left: 0;
                 display: grid;
                 grid-template-columns: 1fr 3.1fr;
                 position:relative;
             }
 
             .contenedor .izquierda{
-
-                margin:30px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                margin-left: 0;
+                margin-right: 0px;
                 border-radius:30px;
                 background: #31A51E;
                 padding: 15px;
@@ -146,6 +149,7 @@
             .contenedor .derecha{
                 margin: 30px;
                 border-radius: 30px;
+                margin-right:0;
                 background: rgb(233, 238, 237);
                 padding: 15px;
                 text-align: center;
