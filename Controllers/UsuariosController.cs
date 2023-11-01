@@ -19,32 +19,6 @@ namespace RecyclU.Controllers
             _context = context;
         }
 
-        // GET: Usuarios
-        public async Task<IActionResult> Index()
-        {
-              return _context.Usuario != null ? 
-                          View(await _context.Usuario.ToListAsync()) :
-                          Problem("Entity set 'RecyclUContext.Usuario'  is null.");
-        }
-
-        // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Usuario == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuario
-                .FirstOrDefaultAsync(m => m.Email == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
         // GET: Usuarios/Create
         public IActionResult Create()
         {
@@ -54,10 +28,5 @@ namespace RecyclU.Controllers
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-        private bool UsuarioExists(string id)
-        {
-          return (_context.Usuario?.Any(e => e.Email == id)).GetValueOrDefault();
-        }
     }
 }
