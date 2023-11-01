@@ -6,11 +6,11 @@
 
 .todo {
     background: #A0D77C;
-    margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 8%;
+    margin-left: 25%;
+    margin-right: 25%;
     margin-bottom: 2%;
-    height: 90vh;
+    height: 60vh;
     border-radius: 30px;
     justify-content: center;
     display: grid;
@@ -22,7 +22,7 @@
         background: #31A51E;
         justify-content: center;
         align-items: center;
-        height: 90vh;
+        height: 60vh;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
         display: flex;
@@ -40,7 +40,7 @@
         }
 
     .todo .derecha {
-        height: 90vh;
+        height: 60vh;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
         justify-content: center;
@@ -64,7 +64,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 40px;
 }
 
@@ -85,7 +85,7 @@ a {
     color: black;
 }
 
-input {
+button {
     background: #096297;
     color: white;
     border-radius: 25px;
