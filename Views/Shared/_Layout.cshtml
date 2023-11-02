@@ -75,7 +75,7 @@
         @if (UniversidadesController.universidad != null)
         {
             <ul>
-                <li><a href="pagina1.html">Opción 1</a></li>
+                <li><a asp-controller="Universidades" asp-action="Edit" asp-route-id="@RecyclU.Controllers.UniversidadesController.universidad.Email">Edit</a></li>
                 <li><a href="pagina2.html">Opción 2</a></li>
                 <li><a href="pagina3.html">Opción 3</a></li>
             </ul>
@@ -85,6 +85,7 @@
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                 <li><a asp-controller="Posts" asp-action="Index">Ver Posts</a></li>
+                <li><a asp-controller="Empresas" asp-action="Edit" asp-route-id="@RecyclU.Controllers.EmpresasController.empresa.Email">Edit</a></li>
             </ul>
         }
 
