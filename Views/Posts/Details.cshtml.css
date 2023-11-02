@@ -1,0 +1,100 @@
+﻿body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background: #A0D77C;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+    .logo img {
+        height: auto;
+        width: auto;
+    }
+
+.contenedor {
+    display:grid;
+    margin-top: 4%;
+    background-color: #E9EEED;
+    grid-template-columns: 0.8fr 0.8fr;
+    border-radius:30px;
+    margin-right:15%;
+    margin-left:15%;
+}
+
+.post-details {
+    margin-left: 20%;
+    margin-top: 10%;
+    display: block;
+    float: left;
+    text-align: justify;
+    width: 50%;
+    flex-direction: column;
+}
+
+.post-info {
+    max-width: 65%; /* Adjust the width as needed */
+    flex-direction: column;
+    display: block;
+    text-align: center;
+    border-radius: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #ffffff;
+    float: right;
+}
+
+.img_post {
+    max-width: 90%;
+    text-align: center; /* To align the image to the right */
+    border-radius: 30px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.logo .logo_recyclU {
+    width: 250px;
+    height: 10%;
+}
+
+.logo .u_recyclu {
+    width: 70px;
+    height: 10%;
+    border-radius: 50px;
+    display: block;
+}
+
+.img_post {
+    width: 300px;
+    height: 300px;
+}
+
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.config-icon {
+    float: right;
+    
+}
+
+
+.btns{
+    margin-top: 5%;
+    margin-bottom:5%;
+}
+
+

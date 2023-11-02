@@ -2,75 +2,59 @@
 @using RecyclU.Controllers
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "RecyclU - Detatalles";
     Layout = "_Layout";
 }
+<div class="contenedor">
+    <div class="post-details">
+        <h5>Descripción</h5>
+        @Html.DisplayFor(model => model.Descripcion)
+        <br>
+        <br>
+        <h5>Material</h5>
+        @Html.DisplayFor(model => model.Material)
+        <br>
+        <br>
+        <h5>Peso</h5>
+        @Html.DisplayFor(model => model.Peso) Toneladas
+        <br>
+        <br>
+        <h5>Precio</h5>
+        $@Html.DisplayFor(model => model.Precio)
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecyclU - Editar post</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <div class="contenedor_gris">
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Imagen)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Imagen)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Descripcion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Precio)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Precio)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Material)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Material)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Peso)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Peso)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Universidad)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Universidad.Email)
-            </dd>
-        </dl>
+        <div class="btns">
             @if (UniversidadesController.universidad != null)
             {
-                <div>
-                    <button class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.Id">Editar</button>
-                </div>
-                <div>
-                    <a asp-action="UniversidadPosts">Volver</a>
-                </div>
+                <form asp-action="Index" method="get" class="d-inline-block ml-3">
+                    <button type="submit" class="btn btn-primary btn-lg">Volver</button>
+                </form>
             }
             @if (EmpresasController.empresa != null)
             {
-                <div>
-                    <a class="btn btn-outline-success" asp-action="Index">Volver</a>
-                </div>
+                <ul>
+                    <li>
+                        <form asp-action="Index" method="get" class="d-inline-block ml-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Volver</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form asp-controller="Negocios" asp-action="Create" method="get" class="d-inline-block ml-3">
+                            <button type="submit" class="btn btn-outline-success">Comprar</button>
+                        </form>
+                    </li>
+                </ul>
             }
+        </div>
     </div>
-</body>
-</html>
+    <div class="post-info">
+        @if (UniversidadesController.universidad != null)
+        {
+            <a asp-area="" method="get" asp-action="Edit" asp-route-id="@Model.Id" class="config-icon">
+                <img src="~/Imagenes/ConfiguracionIcono.png" class="config-icon-img" alt="Config" style="width:10%;height:8%;margin-top:15px" />
+            </a>
+        }
+        <h5><b>@Html.DisplayFor(model => model.Universidad.Nombre)</b></h5>
+        <img src=@Model.Imagen alt="Imagen" class="img_post" />
+    </div>
+</div>
+
