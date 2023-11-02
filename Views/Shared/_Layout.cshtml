@@ -14,40 +14,48 @@
             <div class="container-fluid" style="max-height: 70px;">
 
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="margin-left:20px; margin-right:0;">
-                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" alt="U" style="width:70px; height: 10%; border-radius: 50%; display: block;"/>
+                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" alt="U" style="width:70px; height: 10%; border-radius: 50%; display: block;" />
                 </a>
-                <img src="~/Imagenes/logo_recyclU_def.png" alt="RecyclU" style="width: 250px; height: 10%; padding-left:0px;"/>
+                <img src="~/Imagenes/logo_recyclU_def.png" alt="RecyclU" style="width: 250px; height: 10%; padding-left:0px;" />
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                           
+
                         </li>
                     </ul>
                     @if (UniversidadesController.universidad != null)
                     {
                         <div class="ml-auto">
-                                @if (UniversidadesController.universidad.Logo == null)
-                                {
+                            @if (UniversidadesController.universidad.Logo == null)
+                            {
+                                <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
                                     <img src="~/Imagenes/unknownProfile.png" style="width:70px; height: 10%">
-                                }
-                                else
-                                {
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
                                     <img src="@UniversidadesController.universidad.Logo" style="width:70px; height: 10%">
-                                }
+                                </button>
+                            }
                         </div>
-                          
+
                     }
                     else if (EmpresasController.empresa != null)
                     {
                         <div class="ml-auto">
                             @if (EmpresasController.empresa.Logo == null)
                             {
-                                <img src="~/Imagenes/unknownProfile.png" style="width:70px; height: 10%">
+                                <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
+                                    <img src="~/Imagenes/unknownProfile.png" style="width:70px; height: 10%">
+                                </button>
                             }
                             else
                             {
-                                <img src="@EmpresasController.empresa.Logo" style="width:70px; height: 10%">
+                                <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
+                                    <img src="@EmpresasController.empresa.Logo" style="width:70px; height: 10%">
+                                </button>
                             }
                         </div>
                     }
@@ -63,11 +71,41 @@
             </div>
         </nav>
     </header>
+    <div class="opciones" id="opcionesContainer" style="display: none;">
+        @if (UniversidadesController.universidad != null)
+        {
+            <ul>
+                <li><a href="pagina1.html">Opción 1</a></li>
+                <li><a href="pagina2.html">Opción 2</a></li>
+                <li><a href="pagina3.html">Opción 3</a></li>
+            </ul>
+        }
+        else if (EmpresasController.empresa != null)
+        {
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Posts" asp-action="Index">Ver Posts</a></li>
+            </ul>
+        }
+
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <script>
+        // JavaScript para mostrar/ocultar el menú desplegable al hacer clic en el botón
+        document.getElementById("mostrarMenu").addEventListener("click", function () {
+            var opcionesContainer = document.getElementById("opcionesContainer");
+            if (opcionesContainer.style.display === "block") {
+                opcionesContainer.style.display = "none";
+            } else {
+                opcionesContainer.style.display = "block";
+            }
+        });
+    </script>
+
 </body>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -87,6 +125,36 @@
         text-decoration: none;
         border-radius: 12px;
     }
+
+    .opciones {
+        display: none;
+        position: fixed;
+        top: 105px;
+        right: 20px;
+        bottom: 50%;
+        width: 200px; /* Ancho del contenedor */
+        height: 70%;
+        background-color: #31A51E; /* Color de fondo verde */
+        z-index: 1;
+        border-radius: 10px;
+    }
+
+        .opciones ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .opciones li {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #fff; /* Línea blanca entre las opciones */
+        }
+
+        .opciones a {
+            color: #fff; /* Color de texto blanco */
+            text-decoration: none;
+            display: block;
+        }
 
 </style>
 
