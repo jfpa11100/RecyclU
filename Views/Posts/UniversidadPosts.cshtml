@@ -25,10 +25,7 @@
                     {
                         <tr>
                             <td>
-                                @{
-                                    string url = item.Imagen;
-                                }
-                                <img src="@Url.Content("~/" + url)" alt="Imagen" class="img_post">
+                                <img src=@item.Imagen alt="Imagen" class="img_post" />
                                 <br>
                                 <br>
                                 @Html.DisplayFor(modelItem => item.Descripcion)

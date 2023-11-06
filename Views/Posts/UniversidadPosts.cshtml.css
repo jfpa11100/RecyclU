@@ -101,6 +101,7 @@ header {
 }
 
 .img_post {
-    width: 300px;
-    height: 200px;
+    width: contain;
+    height: contain;
+    border-radius:30px;
 }

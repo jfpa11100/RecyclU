@@ -101,8 +101,9 @@
         border-radius: 10px;
     }
 
-    .img_post {
-        width: 300px;
-        height: 200px;
-    }
+.img_post {
+    width: contain;
+    height: contain;
+    border-radius: 30px;
+}
     
