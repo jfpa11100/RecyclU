@@ -31,6 +31,8 @@ namespace RecyclU.Controllers
         // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            int maxNegocioId = _context.Negocio.Max(n => (int?)n.Id) ?? 0;
+            ViewBag.MaxNegocioId = maxNegocioId+1;
             if (id == null || _context.Post == null)
             {
                 return NotFound();
@@ -170,7 +172,7 @@ namespace RecyclU.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction("UniversidadPosts");
-        }
+        }   
 
         private bool PostExists(int id)
         {

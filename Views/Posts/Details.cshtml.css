@@ -49,7 +49,7 @@ header {
     flex-direction: column;
     display: block;
     text-align: center;
-    border-radius: 10%;
+    border-radius: 30px;
     margin-top: 5%;
     margin-bottom: 5%;
     background-color: #ffffff;
@@ -58,6 +58,7 @@ header {
 
 .img_post {
     max-width: 90%;
+    max-height: contain;
     text-align: center; /* To align the image to the right */
     border-radius: 30px;
     margin-top: 3%;
@@ -92,9 +93,20 @@ li {
 }
 
 
-.btns{
+.btns {
     margin-top: 5%;
-    margin-bottom:5%;
+    margin-bottom: 5%;
+    display:inline-flex;
+}
+
+button.editar {
+    background: #31A51E;
+    color: white;
+    border-radius: 10px;
+    border-color: #31A51E;
+    text-align: center;
+    height: 45px;
+    font-weight:bold;
 }
 
 

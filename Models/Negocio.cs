@@ -1,9 +1,11 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata.Ecma335;
 
 namespace RecyclU.Models
 {
     public class Negocio
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int Id { get; set; }
         public required string UniversidadEmail { get; set; }
         public Universidad? Universidad { get; set; }

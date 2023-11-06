@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using RecyclU.Data;
 using RecyclU.Models;
 
@@ -47,23 +42,18 @@ namespace RecyclU.Controllers
             return View(negocio);
         }
 
-        // GET: Negocios/Create
-        public IActionResult Create()
-        {
-            ViewData["EmpresaEmail"] = new SelectList(_context.Empresa, "Email", "Email");
-            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email");
-            return View();
-        }
 
-        // POST: Negocios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //POST: Negocios/Create
+        //To protect from overposting attacks, enable the specific properties you want to bind to.
+        //For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UniversidadEmail,EmpresaEmail,Material,Peso,Monto")] Negocio negocio)
+        public async Task<IActionResult> Create([Bind("UniversidadEmail,EmpresaEmail,Material,Peso,Monto")] Negocio negocio)
         {
             var universidad = await _context.Universidad.FindAsync(negocio.UniversidadEmail);
-            var empresa = await _context.Empresa.FindAsync(negocio.EmpresaEmail);
+            var empresa =  await _context.Empresa.FindAsync(negocio.EmpresaEmail);
+
             if (universidad != null && empresa != null)
             {
                 negocio.Universidad = (Universidad)universidad;
@@ -73,11 +63,8 @@ namespace RecyclU.Controllers
             {
                 _context.Add(negocio);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["EmpresaEmail"] = new SelectList(_context.Empresa, "Email", "Email", negocio.EmpresaEmail);
-            ViewData["UniversidadEmail"] = new SelectList(_context.Universidad, "Email", "Email", negocio.UniversidadEmail);
-            return View(negocio);
+            return RedirectToAction("Index", "Negocios");
         }
 
         // GET: Negocios/Edit/5
