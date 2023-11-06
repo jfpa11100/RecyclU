@@ -1,23 +1,33 @@
 ﻿@model IEnumerable<RecyclU.Models.Negocio>
+@using RecyclU.Controllers;
 
 @{
-    ViewData["Title"] = "Index";
+    if (ViewBag.User is Universidad)
+    {
+        ViewData["Title"] = "Ventas";
+    }
+    else if (ViewBag.User is Empresa)
+    {
+        ViewData["Title"] = "Compras";
+    }
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Universidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Empresa)
-            </th>
+            @if (EmpresasController.empresa != null){
+                <th>
+                    @Html.DisplayNameFor(model => model.Universidad)
+                </th>
+            }
+
+            @if (UniversidadesController.universidad != null)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa)
+                </th>
+            }
+
             <th>
                 @Html.DisplayNameFor(model => model.Material)
             </th>
@@ -31,24 +41,42 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Universidad.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Empresa.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Peso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Monto)
-            </td>
+            @if (UniversidadesController.universidad != null && UniversidadesController.universidad.Email == item.UniversidadEmail)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Empresa.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Material)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Peso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
            
-        </tr>
-}
+                </tr>
+            }
+            else if (EmpresasController.empresa != null && EmpresasController.empresa.Email == item.EmpresaEmail)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Universidad.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Material)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Peso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
+
+                </tr>
+            }
+        }
     </tbody>
 </table>

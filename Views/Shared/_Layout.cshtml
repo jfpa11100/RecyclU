@@ -75,17 +75,19 @@
         @if (UniversidadesController.universidad != null)
         {
             <ul>
-                <li><a asp-controller="Universidades" asp-action="Edit" asp-route-id="@RecyclU.Controllers.UniversidadesController.universidad.Email">Edit</a></li>
-                <li><a href="pagina2.html">Opción 2</a></li>
-                <li><a href="pagina3.html">Opción 3</a></li>
+                <li><a asp-controller="Universidades" asp-action="Edit" asp-route-id="@RecyclU.Controllers.UniversidadesController.universidad.Email">Editar perfil</a></li>
+                <li><a asp-controller="Posts" asp-action="UniversidadPosts">Mis Posts</a></li>
+                <li><a asp-controller="Negocios" asp-action="Index">Mis ventas</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Cerrar sesión</a></li>
             </ul>
         }
         else if (EmpresasController.empresa != null)
         {
             <ul>
-                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Empresas" asp-action="Edit" asp-route-id="@RecyclU.Controllers.EmpresasController.empresa.Email">Editar perfil</a></li>
                 <li><a asp-controller="Posts" asp-action="Index">Ver Posts</a></li>
-                <li><a asp-controller="Empresas" asp-action="Edit" asp-route-id="@RecyclU.Controllers.EmpresasController.empresa.Email">Edit</a></li>
+                <li><a asp-controller="Negocios" asp-action="Index">Mis compras</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Cerrar sesión</a></li>
             </ul>
         }
 

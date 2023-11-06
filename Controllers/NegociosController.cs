@@ -18,6 +18,14 @@ namespace RecyclU.Controllers
         // GET: Negocios
         public async Task<IActionResult> Index()
         {
+            if (UniversidadesController.universidad != null)
+            {
+                ViewBag.User = UniversidadesController.universidad;
+            }
+            else if (EmpresasController.empresa != null)
+            {
+                ViewBag.User = EmpresasController.empresa;
+            }
             var recyclUContext = _context.Negocio.Include(n => n.Empresa).Include(n => n.Universidad);
             return View(await recyclUContext.ToListAsync());
         }
