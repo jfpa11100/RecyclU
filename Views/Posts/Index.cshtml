@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Posts";
-    // Layout = "_Layout";
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@
                                 <br>
                                 <br>
                                 <form method="get" asp-action="Details" asp-route-id="@item.Id">
-                                    <button type="submit" class="ver-mas-button">VER MÁS</button>
+                                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:15px">VER MÁS</button>
                                 </form>
                             </td>
                         </tr>

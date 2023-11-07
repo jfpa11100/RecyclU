@@ -25,12 +25,13 @@
         <br>
         <h5>Precio</h5>
         $@Html.DisplayFor(model => model.Precio)
-
         <div class="btns">
             @if (UniversidadesController.universidad != null)
             {
                 <form asp-action="UniversidadPosts" method="get" class="d-inline-block ml-3">
-                    <button type="submit" class="btn btn-primary btn-lg">Volver</button>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-left:-75px;">Volver</button>
                 </form>
             }
         </div>
@@ -39,67 +40,73 @@
         @if (UniversidadesController.universidad != null)
         {
             <a asp-area="" method="get" asp-action="Edit" asp-route-id="@Model.Id" class="config-icon">
-                <img src="~/Imagenes/ConfiguracionIcono.png" class="config-icon-img" alt="Config" style="width:10%;height:8%;margin-top:15px" />
+                <img src="~/Imagenes/ConfiguracionIcono.png" class="config-icon-img" alt="Config" style="width:12%;height:8%;margin-top:15px" />
             </a>
         }
-        <h5><b>@Html.DisplayFor(model => model.Universidad.Nombre)</b></h5>
+        @if (EmpresasController.empresa != null)
+        {
+            <br>
+            <h5><b>@Html.DisplayFor(model => model.Universidad.Nombre)</b></h5>
+        }
         <img src=@Model.Imagen alt="Imagen" class="img_post" />
     </div>
     @if (EmpresasController.empresa != null)
     {
-        <ul>
-            <li>
-                <form asp-action="Index" method="get" class="d-inline-block ml-3">
-                    <button type="submit" class="btn btn-primary" style="width:80px; height:40px; border-radius:10px;">Volver</button>
-                </form>
-            </li>
-            <li>
-                <button class="editar comprar-link" data-toggle="modal" data-target="#confirmationModal">Comprar</button>
+        <div class="btns">
+            <ul>
+                <li>
+                    <form asp-action="Index" class="d-inline-block ml-3">
+                        <button type="submit" class="btn btn-primary btn-lg" style="font-weight:bold">Volver</button>
+                    </form>
+                </li>
+                <li>
+                    <button class="editar comprar-link" data-toggle="modal" data-target="#confirmationModal">Comprar</button>
                 
-                <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="confirmationModalLabel">Confirmar Pago</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ¿Estás seguro que quieres comprar este residuo?
-                            </div>
-                            <div class="modal-footer">
-                                @using (Html.BeginForm("Create", "Negocios", FormMethod.Post))
-                                {
-                                    <div class="form-group">
-                                        <input type="hidden" name="Id" value="@ViewBag.MaxNegocioId" />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="UniversidadEmail" value="@Model.Universidad.Email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="EmpresaEmail" value="@EmpresasController.empresa.Email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="Material" value=@Model.Material />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="Peso" value=@Model.Peso />
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="Monto" value=@Model.Precio />
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="height:45px; border-radius:10px;">Cancelar</button>
-                                        <button class="editar" id="#confirmButton" data-toogle="modal" data-target="#confirmationModal">Confirmar</button>
-                                    </div>
-                                }
+                    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmationModalLabel">Confirmar Pago</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ¿Estás seguro que quieres comprar este residuo?
+                                </div>
+                                <div class="modal-footer">
+                                    @using (Html.BeginForm("Create", "Negocios", FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            <input type="hidden" name="Id" value="@ViewBag.MaxNegocioId" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="UniversidadEmail" value="@Model.Universidad.Email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="EmpresaEmail" value="@EmpresasController.empresa.Email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="Material" value=@Model.Material />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="Peso" value=@Model.Peso />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="Monto" value=@Model.Precio />
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="height:47.6px; font-size: 20px;border-radius: 4.8px;">Cancelar</button>
+                                            <button class="editar" id="#confirmButton" data-toogle="modal" data-target="#confirmationModal">Confirmar</button>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     }
 </div>
 

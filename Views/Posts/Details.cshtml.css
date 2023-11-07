@@ -36,7 +36,7 @@ header {
 
 .post-details {
     margin-left: 20%;
-    margin-top: 10%;
+    margin-top: 9%;
     display: block;
     float: left;
     text-align: justify;
@@ -45,21 +45,25 @@ header {
 }
 
 .post-info {
-    max-width: 65%; /* Adjust the width as needed */
+    max-width: 65%; 
     flex-direction: column;
     display: block;
     text-align: center;
+    align-content: center;
     border-radius: 30px;
-    margin-top: 5%;
+    margin-top: 4%;
     margin-bottom: 5%;
     background-color: #ffffff;
     float: right;
+    border-style: double;
+    border-width: 8px;
+    border-color: #A0D77C;
 }
 
 .img_post {
     max-width: 90%;
     max-height: contain;
-    text-align: center; /* To align the image to the right */
+    text-align: center;
     border-radius: 30px;
     margin-top: 3%;
     margin-bottom: 5%;
@@ -92,21 +96,27 @@ li {
     
 }
 
-
 .btns {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 7%;
+    margin-bottom: 10%;
     display:inline-flex;
+    margin-left:9%
 }
 
 button.editar {
+    font-weight:400;
+    font-size: 20px;
+    line-height: 1.5;
     background: #31A51E;
     color: white;
-    border-radius: 10px;
+    border-radius: 4.8px;
     border-color: #31A51E;
     text-align: center;
-    height: 45px;
+    vertical-align:middle;
+    margin:auto;
+    height: 47.6px;
     font-weight:bold;
+    box-sizing: border-box;   
 }
 
 

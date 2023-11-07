@@ -93,13 +93,13 @@
         display: block;
     }
 
-    .ver-mas-button {
-        background-color: #096297;
-        color: white;
-        width: 100px;
-        height: 50px;
-        border-radius: 10px;
-    }
+.ver-mas-button {
+    background-color: #0d6efd;
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 4.8px;
+}
 
 .img_post {
     width: contain;
