@@ -10,7 +10,7 @@
     margin-left: 25%;
     margin-right: 25%;
     margin-bottom: 2%;
-    height: 60vh;
+    height: 70vh;
     border-radius: 30px;
     justify-content: center;
     display: grid;
@@ -22,7 +22,7 @@
         background: #31A51E;
         justify-content: center;
         align-items: center;
-        height: 60vh;
+        height: 70vh;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
         display: flex;
@@ -40,7 +40,7 @@
         }
 
     .todo .derecha {
-        height: 60vh;
+        height: 70vh;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
         justify-content: center;
@@ -68,6 +68,10 @@ input {
     height: 40px;
 }
 
+    .contenido .form-group {
+        text-align: left;
+    }
+
 
 form {
     max-width: 450px;
@@ -88,6 +92,8 @@ a {
 button {
     background: #096297;
     color: white;
-    border-radius: 25px;
-    padding: 12px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 15px;
 }

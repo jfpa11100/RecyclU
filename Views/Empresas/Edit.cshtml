@@ -3,75 +3,68 @@
     ViewData["Title"] = "Registro";
     Layout = "_Layout";
 }
+<title>Editar perfil</title>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecyclU - Registro</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
-</head>
+<div class="grande">
+    <div class="todo">
+        <div class="izquierda">
+            <a>
+                <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" style="border-radius:50%;height:150px;width:150px;">
+            </a>
+        </div>
 
-<body>
-    <div class="grande">
-        <div class="todo">
-            <div class="izquierda">
-                <a >
-                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" style="border-radius:50%;height:150px;width:150px;">
-                </a>
-            </div>
+        <div class="derecha text-center mt-3" style="height: 90vh;border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;justify-content: center;align-items: center;
+            display: flex;flex-direction: column;flex-wrap: wrap;gap: 12px; height: 60vh;">
 
-            <div class="derecha text-center mt-3" style="height: 90vh;border-top-right-radius: 30px;
-                border-bottom-right-radius: 30px;justify-content: center;align-items: center;
-                display: flex;flex-direction: column;flex-wrap: wrap;gap: 12px; height: 60vh;">
-        
             <form asp-action="Edit" style="margin-left:0; padding-left:0;">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Email" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Email" />
 
-                    <div class="contenido">
-                        <input asp-for="Contraseña" class="form-control" placeholder="Contraseña" style="border-radius:25px" />
-                        <span asp-validation-for="Contraseña" class="text-danger"></span>
-                    </div>
-
-                    <div class="contenido">
-                        <input asp-for="Nombre" class="form-control" placeholder="Nombre" style="border-radius:25px" />
+                <div class="contenido">
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Nombre" style="border-radius: 25px;" />
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
-
-                    <div class="contenido">
-                        <input asp-for="Logo" class="form-control" placeholder="Logo" style="border-radius:25px" />
-                        <span asp-validation-for="Logo" class="text-danger"></span>
-                    </div>
-
-                    <div class="contenido">
-                        <textarea asp-for="Descripcion" class="form-control" placeholder="Descripcion" style="border-radius:25px"></textarea>
-                        <span asp-validation-for="Descripcion" class="text-danger"></span>
-                    </div>
-
-                    <div class="contenido" style="text-align:center;">
-                        <button type="submit" value="Save" class="btn btn-primary" style="background: #096297;color: white;border-radius: 25px;padding: 12px; text-align:center;"> Guardar</button>
-                    </div>
-
-                    
-
-                </form>
-
-
-                <div>
-                    <a asp-action="Index" style="text-decoration: none; color: #0d6efd;margin-left:0px;">Volver</a>
                 </div>
 
+                <div class="contenido">
+                    <div class="form-group">
+                        <label asp-for="Contraseña" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="Contraseña" style="border-radius: 25px;" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+                </div>
 
+                <div class="contenido">
+                    <div class="form-group">
+                        <label asp-for="Logo" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <input asp-for="Logo" class="form-control" placeholder="Logo" style="border-radius: 25px;" />
+                        <span asp-validation-for="Logo" class="text-danger"></span>
+                    </div>
+                </div>
 
-            </div>
+                <div class="contenido">
+                    <div class="form-group">
+                        <br>
+                        <label asp-for="Descripcion" class="control-label label-bold text-left" style="font-weight: bold;">Descripción</label>
+                        <textarea asp-for="Descripcion" class="form-control" placeholder="Descripcion" style="border-radius: 25px;"></textarea>
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="contenido" style="text-align: center;">
+                    <button type="submit" value="Save" class="btn btn-primary">Guardar</button>
+                </div>
+
+                <div>
+                    <a asp-controller="Posts" asp-action="Index">Volver</a>
+                </div>
+            </form>
         </div>
     </div>
-</body>
-</html>
+</div>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

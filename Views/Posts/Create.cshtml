@@ -2,69 +2,74 @@
 @using RecyclU.Controllers
 @{
     ViewData["Title"] = "Create";
+    Layout = "_Layout";
 }
 
-<h1>Añadir</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecyclU - Crear Post</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="grande">
+        <div class="todo">
+            <div class="izquierda">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Imagenes/u_recyclU.jpeg" class="img-responsive" style="border-radius:50%; height:150px;width:150px;">
+                </a>
+            </div>
 
-<h4>Post</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="derecha text-center mt-3">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UniversidadEmail" value="@UniversidadesController.universidad.Email" />
+                    <div class="contenido">
+                        <input asp-for="Imagen" class="form-control" placeholder="Link Imagen" style="height: 37.5px; border-radius: 25px;" />
+                        <span asp-validation-for="Imagen" class="text-danger"></span>
+                    </div>
 
-            <input type="hidden" asp-for="UniversidadEmail" value="@UniversidadesController.universidad.Email" />
+                    <div class="contenido">
+                        <input asp-for="Descripcion" class="form-control" placeholder="Descripción" style="height: 37.5px; border-radius: 25px;" />
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="contenido">
+                        <input asp-for="Precio" class="form-control" placeholder="$ Precio" style="height: 37.5px; border-radius: 25px;" />
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div>
+                    <div class="contenido">
+                        <label for="Material"></label>
+                        <select class="form-control" id="Material" name="Material" style="border-radius:25px">
+                            <option>Tipo de material</option>
+                            <option value="Plástico">PLÁSTICO</option>
+                            <option value="Madera">MADERA</option>
+                            <option value="Cartón">CARTÓN</option>
+                            <option value="Papel">PAPEL</option>
+                            <option value="Pilas y baterias">PILAS Y BATERIAS</option>
+                            <option value="Vidrio">VIDRIO</option>
+                        </select>
+                    </div>
+                    <div class="contenido">
+                        <input asp-for="Peso" class="form-control" placeholder="Peso en toneladas" style="height: 37.5px; border-radius: 25px;" />
+                        <span asp-validation-for="Peso" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="Imagen" class="control-label"></label>
-                <input asp-for="Imagen" class="form-control" />
-                <span asp-validation-for="Imagen" class="text-danger"></span>
+                    <div class="contenido">
+                        <button type="submit" value="Crear" class="btn btn-primary">CREAR POST</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Material" class="control-label"></label>
-                <input asp-for="Material" class="form-control" />
-                <span asp-validation-for="Material" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label"> Peso en toneladas</label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input class="btn btn-outline-success"  type="submit" value="Crear" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="UniversidadPosts">Volver</a>
-</div>
-
-<style type="text/css">
-
-    a.editar {
-        padding: 12px;
-        background: #096297;
-        color: white;
-        font-weight: bold;
-        border-radius: 10px;
-        text-decoration: none;
-        border-radius: 12px;
-    }
-
-</style>
+</body>
+</html>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

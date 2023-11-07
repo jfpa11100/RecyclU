@@ -196,3 +196,32 @@ p {
 h1 {
     color: green;
 }
+
+.toggle-text {
+    cursor: pointer;
+    color: #31A51E; /* Change color to indicate it's clickable */
+    text-decoration: none;
+}
+
+.toggle-icon {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transition: transform 0.3s; /* Add a transition for smooth animation */
+}
+.toggle-text.expanded .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.toggle-icon-side {
+    display: inline-block;
+    transition: transform 0.3s; /* Add a transition for smooth animation */
+}
+
+.toggle-text.expanded .toggle-icon-side {
+    transform: rotate(180deg);
+}
+
+
+.hidden-text {
+    display: none;
+}

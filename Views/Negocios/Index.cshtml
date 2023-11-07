@@ -11,7 +11,7 @@
         ViewData["Title"] = "Compras";
     }
 }
-
+<title>@ViewData["Title"]</title>
 <table class="table">
     <thead>
         <tr>
@@ -19,12 +19,19 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Universidad)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Universidad.Email)
+                </th>
             }
 
             @if (UniversidadesController.universidad != null)
             {
                 <th>
                     @Html.DisplayNameFor(model => model.Empresa)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa.Email)
                 </th>
             }
 
@@ -45,6 +52,9 @@
             {
                 <tr>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Empresa.Email)
                     </td>
                     <td>
@@ -62,6 +72,9 @@
             else if (EmpresasController.empresa != null && EmpresasController.empresa.Email == item.EmpresaEmail)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Universidad.Nombre)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Universidad.Email)
                     </td>

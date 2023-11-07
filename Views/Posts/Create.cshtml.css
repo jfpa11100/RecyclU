@@ -29,10 +29,12 @@
     }
 
 
+
+
         .todo .izquierda img {
             background: white;
-            height: 280px;
-            width: 280px;
+            max-height: 100px;
+            max-width: 100px;
             border-radius: 50%;
             object-fit: cover;
             object-position: top;
@@ -68,10 +70,6 @@ input {
     height: 40px;
 }
 
-    .contenido .form-group {
-        text-align: left;
-    }
-
 
 form {
     max-width: 450px;
@@ -92,9 +90,6 @@ a {
 button {
     background: #096297;
     color: white;
-    border-radius: 30px;
-    padding: 10px;
-    margin-top: 60px;
-    margin-bottom: 15px;
+    border-radius: 25px;
+    padding: 12px;
 }
-
