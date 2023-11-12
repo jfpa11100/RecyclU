@@ -207,6 +207,7 @@ h1 {
     display: inline-block;
     transform: rotate(90deg);
     transition: transform 0.4s; /* Add a transition for smooth animation */
+    color: rgb(13, 110, 253);
 }
 .toggle-text.expanded .toggle-icon {
     transform: rotate(-90deg);
@@ -215,6 +216,7 @@ h1 {
 .toggle-icon-side {
     display: inline-block;
     transition: transform 0.4s; /* Add a transition for smooth animation */
+    color: rgb(13, 110, 253);
 }
 
 .toggle-text.expanded .toggle-icon-side {

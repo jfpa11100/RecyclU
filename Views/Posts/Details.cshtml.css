@@ -101,7 +101,8 @@ li {
     margin-top: 7%;
     margin-bottom: 10%;
     display:inline-flex;
-    margin-left:9%
+    margin-left:9%;
+    border-radius: 15px;
 }
 
 button.editar {
@@ -110,7 +111,7 @@ button.editar {
     line-height: 1.5;
     background: #31A51E;
     color: white;
-    border-radius: 4.8px;
+    border-radius: 15px;
     border-color: #31A51E;
     text-align: center;
     vertical-align:middle;
