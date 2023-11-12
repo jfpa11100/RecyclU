@@ -22,7 +22,7 @@
 
                 <div class="contenido">
                     <div class="form-group">
-                        <label asp-for="Nombre" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <label asp-for="Nombre" class="control-label label-bold text-left"></label>
                         <input asp-for="Nombre" class="form-control" placeholder="Nombre" style="border-radius: 25px;" />
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
@@ -30,7 +30,7 @@
 
                 <div class="contenido">
                     <div class="form-group">
-                        <label asp-for="Contraseña" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <label asp-for="Contraseña" class="control-label label-bold text-left"></label>
                         <input type="password" asp-for="Contraseña" class="form-control" placeholder="Contraseña" style="border-radius: 25px;" />
                         <span asp-validation-for="Contraseña" class="text-danger"></span>
                     </div>
@@ -38,7 +38,7 @@
 
                 <div class="contenido">
                     <div class="form-group">
-                        <label asp-for="Logo" class="control-label label-bold text-left" style="font-weight: bold;"></label>
+                        <label asp-for="Logo" class="control-label label-bold text-left"></label>
                         <input asp-for="Logo" class="form-control" placeholder="Logo" style="border-radius: 25px;" />
                         <span asp-validation-for="Logo" class="text-danger"></span>
                     </div>
@@ -47,14 +47,14 @@
                 <div class="contenido">
                     <div class="form-group">
                         <br>
-                        <label asp-for="Descripcion" class="control-label label-bold text-left" style="font-weight: bold;">Descripción</label>
+                        <label asp-for="Descripcion" class="control-label label-bold text-left">Descripción</label>
                         <textarea asp-for="Descripcion" class="form-control" placeholder="Descripcion" style="border-radius: 25px;"></textarea>
                         <span asp-validation-for="Descripcion" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="contenido" style="text-align:center;">
-                    <button type="submit" value="Save" class="btn btn-primary">Guardar</button>
+                    <button type="submit" value="Save" class="btn btn-primary" style="border-radius:15px;">Guardar</button>
                 </div>
                 <div>
                     <a asp-controller="Posts" asp-action="UniversidadPosts">Volver</a>

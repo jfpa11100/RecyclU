@@ -15,8 +15,12 @@
     <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
 </head>
 <body>
-
+    
+    <h3 style="justify-content:center;align-items:center; text-align:center;  color:#096297;"> Mis post </h3>
+    
     <div class="contenedor2">
+
+    
         <table class="table-data">
             <tbody>
                 @foreach (var item in Model)
@@ -44,7 +48,7 @@
     </div>
     <div class="fixed-bottom d-flex justify-content-center text-white mb-3">
         <a asp-controller="Posts" asp-action="Create" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Añadir nuevo Post
+            <i class="bi bi-plus-circle"></i> Añadir nuevo post
         </a>
     </div>
 

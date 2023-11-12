@@ -43,8 +43,7 @@
         height: 70vh;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
-        justify-content: center;
-        align-items: center;
+ 
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -78,7 +77,6 @@ form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 200px;
     margin-bottom: 20px;
