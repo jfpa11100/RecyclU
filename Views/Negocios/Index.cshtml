@@ -47,7 +47,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model.Take(10)) {
             @if (UniversidadesController.universidad != null && UniversidadesController.universidad.Email == item.UniversidadEmail)
             {
                 <tr>
@@ -91,5 +91,68 @@
                 </tr>
             }
         }
+        @if (Model.Count() > 10)
+        {
+            <td colspan="6">
+                <a href="javascript:void(0);" id="verMasLink" onclick="toggleItems()">Ver más</a>
+             </td>
+        }
+
+         @foreach (var (index, item) in Model.Skip(10).Select((value, index) => (index, value)))
+         {
+             <tr class="additionalItems" id="additionalItems_@index" style="display:none;">
+                 @if (UniversidadesController.universidad != null && UniversidadesController.universidad.Email == item.UniversidadEmail)
+                 {
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Empresa.Email)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Material)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Peso)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Monto)
+                         </td>
+                 }
+                 else if (EmpresasController.empresa != null && EmpresasController.empresa.Email == item.EmpresaEmail)
+                 {
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Universidad.Nombre)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Universidad.Email)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Material)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Peso)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => item.Monto)
+                         </td>
+                 }
+             </tr>
+             }
     </tbody>
 </table>
+
+<script>
+    function toggleItems() {
+        var additionalItems = document.querySelectorAll('.additionalItems');
+        additionalItems.forEach(function (item) {
+            item.style.display = item.style.display === "none" ? "table-row" : "none";
+        });
+
+        // Toggle the link text between "Ver más" and "Esconder"
+        var verMasLink = document.getElementById('verMasLink');
+        if (verMasLink) {
+            verMasLink.innerText = verMasLink.innerText === "Ver más" ? "Esconder" : "Ver más";
+        }
+    }
+</script>
