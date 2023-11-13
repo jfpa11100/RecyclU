@@ -29,13 +29,6 @@
                     </div>
                 </div>
 
-                <div class="contenido">
-                    <div class="form-group">
-                        <label asp-for="Contraseña" class="control-label label-bold text-left" ></label>
-                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="Contraseña" style="border-radius: 25px;" />
-                        <span asp-validation-for="Contraseña" class="text-danger"></span>
-                    </div>
-                </div>
 
                 <div class="contenido">
                     <div class="form-group">
@@ -54,6 +47,15 @@
                     </div>
                 </div>
 
+                <div class="contenido">
+                    <div class="form-group">
+                        <br>
+                        <br>
+                        <label asp-for="Contraseña" class="control-label label-bold text-left"></label>
+                        <input type="password" asp-for="Contraseña" class="form-control" placeholder="Contraseña" style="border-radius: 25px;" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+                </div>
                 <div class="contenido" style="text-align: center;">
                     <button type="submit" value="Save" class="btn btn-primary">Guardar</button>
                 </div>

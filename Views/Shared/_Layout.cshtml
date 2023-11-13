@@ -51,7 +51,7 @@
                             else
                             {
                                 <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
-                                    <img src="@UniversidadesController.universidad.Logo" style="width:70px; height: 10%">
+                                    <img src="@UniversidadesController.universidad.Logo" style="width:70px; height: 10%; border-radius:30px; padding:1%;">
                                 </button>
                             }
                         </div>
@@ -69,7 +69,7 @@
                             else
                             {
                                 <button class="btn btn-primary" id="mostrarMenu" style="border: none; background: none; padding: 0;">
-                                    <img src="@EmpresasController.empresa.Logo" style="width:70px; height: 10%">
+                                    <img src="@EmpresasController.empresa.Logo" style="width:70px; height: 10%; border-radius:30px; padding:1%;">
                                 </button>
                             }
                         </div>
@@ -85,11 +85,12 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header>   
     <div class="opciones" id="opcionesContainer" style="display: none;">
         @if (UniversidadesController.universidad != null)
         {
             <ul>
+                <li><h5 style="color: white; justify-content:normal">@RecyclU.Controllers.UniversidadesController.universidad.Nombre</h5></li>
                 <li><a asp-controller="Universidades" asp-action="Edit" asp-route-id="@RecyclU.Controllers.UniversidadesController.universidad.Email">Editar perfil</a></li>
                 <li><a asp-controller="Posts" asp-action="UniversidadPosts">Mis posts</a></li>
                 <li><a asp-controller="Negocios" asp-action="Index">Mis ventas</a></li>
@@ -99,6 +100,7 @@
         else if (EmpresasController.empresa != null)
         {
             <ul>
+                <li><h5 style="color: white;">@RecyclU.Controllers.EmpresasController.empresa.Nombre</h5></li>
                 <li><a asp-controller="Empresas" asp-action="Edit" asp-route-id="@RecyclU.Controllers.EmpresasController.empresa.Email">Editar perfil</a></li>
                 <li><a asp-controller="Posts" asp-action="Index">Ver posts</a></li>
                 <li><a asp-controller="Negocios" asp-action="Index">Mis compras</a></li>
@@ -157,6 +159,7 @@
         border-radius: 10px;
         text-align: center;
         vertical-align: middle;
+        -ms-scrollbar-highlight-color:darkblue;
     }
 
         .opciones ul {

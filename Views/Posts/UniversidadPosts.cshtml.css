@@ -1,6 +1,6 @@
 ﻿.table-data {
-    width: 75%;
-    max-width: 1000px;
+    max-width: 65%;
+    width: 65%;
     border-collapse: separate;
     border-spacing: 80px; /* Reduce el espaciado entre las celdas */
     align-items: center;
@@ -30,7 +30,7 @@
 
 .table-data td {
     background-color: white;
-    margin-bottom: 10px;
+    margin-bottom: 8%;
     border-radius: 30px;
 }
 
@@ -66,11 +66,12 @@ header {
     display: grid;
     grid-template-columns: 1fr 3.1fr;
     position: relative;
+    max-width:50%;
 }
 
     .contenedor1.contenedor2 {
         background: #D9D9D9;
-        width: 1000px;
+        max-width: 50%;
         margin: auto;
         position: absolute;
         top: 0;
@@ -80,17 +81,6 @@ header {
         align-items: center;
     }
 
-.logo .logo_recyclU {
-    width: 250px;
-    height: 10%;
-}
-
-.logo .u_recyclu {
-    width: 70px;
-    height: 10%;
-    border-radius: 50px;
-    display: block;
-}
 
 button{
     background: #096297;
@@ -101,8 +91,9 @@ button{
 }
 
 .img_post {
-    width: contain;
-    height: contain;
+    max-width:80%;
+    height: auto;
     border-radius: 30px;
+    margin-top:10%;
 }
 

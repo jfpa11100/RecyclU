@@ -26,7 +26,8 @@
 <table class="table">
     <thead>
         <tr>
-            @if (EmpresasController.empresa != null){
+            @if (EmpresasController.empresa != null)
+            {
                 <th>
                     @Html.DisplayNameFor(model => model.Universidad)
                 </th>
@@ -57,8 +58,9 @@
             </th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model.Take(10)) {
+    <tbody id="dataTableBody">
+        @foreach (var item in Model)
+        {
             @if (UniversidadesController.universidad != null && UniversidadesController.universidad.Email == item.UniversidadEmail)
             {
                 <tr>
@@ -77,7 +79,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Monto)
                     </td>
-           
                 </tr>
             }
             else if (EmpresasController.empresa != null && EmpresasController.empresa.Email == item.EmpresaEmail)
@@ -98,72 +99,35 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Monto)
                     </td>
-
                 </tr>
             }
         }
-        @if (Model.Count() > 10)
-        {
-            <td colspan="6">
-                <a href="javascript:void(0);" id="verMasLink" onclick="toggleItems()">Ver más</a>
-             </td>
-        }
-
-         @foreach (var (index, item) in Model.Skip(10).Select((value, index) => (index, value)))
-         {
-             <tr class="additionalItems" id="additionalItems_@index" style="display:none;">
-                 @if (UniversidadesController.universidad != null && UniversidadesController.universidad.Email == item.UniversidadEmail)
-                 {
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Empresa.Nombre)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Empresa.Email)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Material)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Peso)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Monto)
-                         </td>
-                 }
-                 else if (EmpresasController.empresa != null && EmpresasController.empresa.Email == item.EmpresaEmail)
-                 {
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Universidad.Nombre)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Universidad.Email)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Material)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Peso)
-                         </td>
-                         <td>
-                             @Html.DisplayFor(modelItem => item.Monto)
-                         </td>
-                 }
-             </tr>
-             }
     </tbody>
 </table>
 
-<script>
-    function toggleItems() {
-        var additionalItems = document.querySelectorAll('.additionalItems');
-        additionalItems.forEach(function (item) {
-            item.style.display = item.style.display === "none" ? "table-row" : "none";
-        });
+@if (Model.Count() > 10)
+{
+    <div id="verMasContainer">
+        <a href="javascript:void(0);" id="verMasLink" onclick="toggleItems()">Ver más</a>
+    </div>
+}
 
-        // Toggle the link text between "Ver más" and "Esconder"
-        var verMasLink = document.getElementById('verMasLink');
-        if (verMasLink) {
-            verMasLink.innerText = verMasLink.innerText === "Ver más" ? "Esconder" : "Ver más";
-        }
-    }
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var dataTableBody = $("#dataTableBody");
+        var verMasLink = $("#verMasLink");
+
+        // Oculta las filas después de la décima
+        dataTableBody.find("tr:gt(9)").hide();
+
+        verMasLink.on("click", function () {
+            // Alterna la visibilidad de las filas después de la décima
+            dataTableBody.find("tr:gt(9)").toggle();
+
+            // Actualiza el texto del enlace
+            var newText = dataTableBody.find("tr:gt(9)").is(":visible") ? "Ver menos" : "Ver más";
+            verMasLink.text(newText);
+        });
+    });
 </script>

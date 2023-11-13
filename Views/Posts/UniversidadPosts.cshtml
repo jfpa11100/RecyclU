@@ -4,58 +4,38 @@
     ViewData["Title"] = "Index";
     Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecyclU - Posts</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/RecyclU.styles.css" asp-append-version="true" />
-</head>
-<body>
+<h3 style="justify-content:center;align-items:center; text-align:center;  color:#096297;"> Mis post </h3>
     
-    <h3 style="justify-content:center;align-items:center; text-align:center;  color:#096297;"> Mis post </h3>
-    
-    <div class="contenedor2">
+<div class="contenedor2">
 
     
-        <table class="table-data">
-            <tbody>
-                @foreach (var item in Model)
+    <table class="table-data">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.UniversidadEmail == UniversidadesController.universidad.Email)
                 {
-                    if (item.UniversidadEmail == UniversidadesController.universidad.Email)
-                    {
-                        <tr>
-                            <td>
-                                <img src=@item.Imagen alt="Imagen" class="img_post" />
-                                <br>
-                                <br>
-                                @Html.DisplayFor(modelItem => item.Descripcion)
-                                <br>
-                                <br>
-                                <form method="get" asp-action="Details" asp-route-id="@item.Id">
-                                    <button type="submit" class="btn btn-primary">Ver más</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-
+                    <tr>
+                        <td>
+                            <img src=@item.Imagen alt="Imagen" class="img_post" />
+                            <br>
+                            <br>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                            <br>
+                            <br>
+                            <form method="get" asp-action="Details" asp-route-id="@item.Id">
+                                <button type="submit" class="btn btn-primary">Ver más</button>
+                            </form>
+                        </td>
+                    </tr>
                 }
-            </tbody>
-        </table>
-    </div>
-    <div class="fixed-bottom d-flex justify-content-center text-white mb-3">
-        <a asp-controller="Posts" asp-action="Create" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Añadir nuevo post
-        </a>
-    </div>
 
-
-    
-    
-
-</body>
-
-</html>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="fixed-bottom d-flex justify-content-center text-white mb-3">
+    <a asp-controller="Posts" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Añadir nuevo post
+    </a>
+</div>
